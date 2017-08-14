@@ -21,9 +21,9 @@ body{
 }
 .right{
 	color: white;
-	background-color: #444;
+	background-color: rgba(68,68,68,.7);
 }
 .left{
-	background-color: #ffcf27;
+	background-color: rgba(255,207,39,.7);
 }
 
