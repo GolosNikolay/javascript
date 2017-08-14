@@ -23,10 +23,17 @@
         </div>
     </div>
 
-    <p>Важная информация теперь не ждёт, пока загрузится скрипт...</p>
-    <script async src="https://js.cx/hello/ads.js?speed=0"></script>
-    <p>...Важная информация!</p>
+    <!-- Пример с async и defer
+    async - скрипт запустится сразу как прогрузится
+    defer - срипты пойдут один за другим и запустятся только когда обработается весь html
+        
+        <p>Важная информация теперь не ждёт, пока загрузится скрипт...</p>
+        <script async src="https://js.cx/hello/ads.js?speed=0"></script>
+        <p>...Важная информация!</p>
 
-    <script async src="myScript.js"></script>
+    -->
+
+    <script defer src="myScript.js"></script>
+
 </body>
 </html>
