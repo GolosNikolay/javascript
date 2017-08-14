@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>    
+    <title>FirstBook</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <script>
+
+    </script>
+    <div class="left">
+        <h2>Привет!</h2>
+        <p>Меня зовут коля, я изучаю js. Ты можешь следть за мои прогрессом на этом сайте.</p>
+    </div>
+    <div class="right">
+        <h2>Дарова!</h2>
+        <p>Меня зовут лень, я мешаю Коле прогрессировать и развиваиться. И буду ему мешать, я ведь для этого создана!</p>
+    </div>
+</body>
+</html>
