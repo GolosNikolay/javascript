@@ -2,15 +2,13 @@
 			  // однако не поддерживается в IE9, чтобы это исправить можно для старых браузеров подключить
 			  // библиотеку ES5 shim
 
-var CORPORATE_ORANGE = "#f58220"; //константы
-var CORPORATE_BLUE = "#0054a6";
+var user = {  // создаем объект user
+	name: "Vasya",
+	age: 21
+};
+console.log(user.age);
 
-var message = "My first variable";
-console.log(message);
+console.log(typeof user); // смотрим тип переменной user
 
-
-
-error = "U can't define variable without var using 'use strict'!";
-console.log(error);
-
-
+// примитиыные типы пемеренных - number, string, boolean, null, undefined
+// более сложный тип - object
