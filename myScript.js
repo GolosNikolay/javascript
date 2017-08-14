@@ -2,13 +2,12 @@
 			  // однако не поддерживается в IE9, чтобы это исправить можно для старых браузеров подключить
 			  // библиотеку ES5 shim
 
-var user = {  // создаем объект user
-	name: "Vasya",
-	age: 21
-};
-console.log(user.age);
+//Постфиксный инкремент
+var i = 1;
+var a = i++;
+console.log(a); //a = 1
 
-console.log(typeof user); // смотрим тип переменной user
-
-// примитиыные типы пемеренных - number, string, boolean, null, undefined
-// более сложный тип - object
+//Префиксный инкремент
+var i = 1;
+var a = ++i;
+console.log(a); //a = 2
