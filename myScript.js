@@ -2,15 +2,6 @@
 			  // однако не поддерживается в IE9, чтобы это исправить можно для старых браузеров подключить
 			  // библиотеку ES5 shim
 
-var check = true, result, age;
-while(check){
-	age = prompt("Сколько вам лет?",'');
-	result = age >= 18 ? true : false;
-	if (result){
-		alert("Поздравляю, ты можешь смотреть страницу!");
-		check = false;
-	}
-	else {
-		alert("Ты еще малой!");
-	}
-}
+var client,VKontakte, Facebook, Mail, Yandex, Google;
+Mail = 'Mail';
+alert(client = VKontakte || Facebook || Mail || Yandex || Google);
