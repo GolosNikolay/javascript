@@ -2,23 +2,28 @@
 			  // однако не поддерживается в IE9, чтобы это исправить можно для старых браузеров подключить
 			  // библиотеку ES5 shim
 
-//Function Declaration
-sayHello(prompt('Введите ваше имя'),''); //сработает
-
-function sayHello(name) {
-	alert('Привет, ' + name + '!');
+function pow(x,n) {
+	if (n != 1) {
+		return x * pow(x, n-1);
+	}
+	else{
+		return x;
+	}
 }
 
-//Function Expression (работает при объявлении в конструкции if)
-sayGoodbye(prompt('Введите ваше имя'),''); //не сработает т.к. sayGoogbye объявлена ниже
+console.log(pow(2,10));
 
-var sayGoodbye = function(name){
-	alert('Прощай, ' + name + '!');
+var number = +prompt("Введите число",100), result = 0;
+for (var i = 1; i <= number; i++) {
+	result += i;
 }
+console.log(result);
 
 
-//New Function
-var sum = new Function('a,b', ' return a+b; ');
-
-var result = sum(1, 2);
-alert( result ); // 3
+function sum(n) {
+	if (n >= 1 ) {
+		return n + sum(n-1);
+	}
+	else return n;
+}
+console.log(sum(100));
