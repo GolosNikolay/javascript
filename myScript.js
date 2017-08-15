@@ -2,30 +2,23 @@
 			  // однако не поддерживается в IE9, чтобы это исправить можно для старых браузеров подключить
 			  // библиотеку ES5 shim
 
-//Преобразования
+//Function Declaration
+sayHello(prompt('Введите ваше имя'),''); //сработает
 
-function checkName(name){
-	if (name == 'null' || name == ''){
-		return ('Вы не ввели имя!');
-	}
-	return ('Ваше имя ' + name + '!');
+function sayHello(name) {
+	alert('Привет, ' + name + '!');
 }
 
-var result = checkName(prompt("Ведите ваше имя", ''));
-alert(result);
+//Function Expression (работает при объявлении в конструкции if)
+sayGoodbye(prompt('Введите ваше имя'),''); //не сработает т.к. sayGoogbye объявлена ниже
 
-
-function checkAge(age) {
-  if (age > 18) {
-    return true;
-  } else {
-    return confirm('Родители разрешили?');
-  }
+var sayGoodbye = function(name){
+	alert('Прощай, ' + name + '!');
 }
 
-function checkAge(age){
-	return age > 18 ? true : confirm('Родители разрешили?');
-}
-function checkAge(age){
-	return (age > 18) || confirm('Родители разрешили?');
-}
+
+//New Function
+var sum = new Function('a,b', ' return a+b; ');
+
+var result = sum(1, 2);
+alert( result ); // 3
