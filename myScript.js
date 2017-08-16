@@ -2,28 +2,13 @@
 			  // однако не поддерживается в IE9, чтобы это исправить можно для старых браузеров подключить
 			  // библиотеку ES5 shim
 
-function pow(x,n) {
-	if (n != 1) {
-		return x * pow(x, n-1);
-	}
-	else{
-		return x;
+function changeBackground() {
+	var colors = ['#fbdcf8', '#dce1fb', '#dcfbf6','#e1fbdc'];
+	var status = 0;
+	return function() {
+		document.body.style.backgroundColor = colors[status];
+		console.log(colors[status]);
+		return status < 3 ? status++ : status = 0;
 	}
 }
-
-console.log(pow(2,10));
-
-var number = +prompt("Введите число",100), result = 0;
-for (var i = 1; i <= number; i++) {
-	result += i;
-}
-console.log(result);
-
-
-function sum(n) {
-	if (n >= 1 ) {
-		return n + sum(n-1);
-	}
-	else return n;
-}
-console.log(sum(100));
+var change = changeBackground();
