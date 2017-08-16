@@ -3,13 +3,12 @@
 			  // библиотеку ES5 shim
 
 function changeBackground() {
-	var status = 1;
+	var colors = ['#fbdcf8', '#dce1fb', '#dcfbf6','#e1fbdc'];
+	var status = 0;
 	return function() {
-		if( (status%2) == 1 ) {
-			document.body.style.backgroundColor = '#eeeeee';
-		}
-		else document.body.style.backgroundColor = '';
-		return status++;
+		document.body.style.backgroundColor = colors[status];
+		console.log(colors[status]);
+		return status < 3 ? status++ : status = 0;
 	}
 }
 var change = changeBackground();
