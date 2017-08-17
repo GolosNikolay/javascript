@@ -2,68 +2,30 @@
 			  // однако не поддерживается в IE9, чтобы это исправить можно для старых браузеров подключить
 			  // библиотеку ES5 shim
 
-//Объект как ассоциативный массив
-var user = {};
-user.name = "Vasya";
-user.surname = "Petrov";
-user['name'] = "Sergei";
-user.age = 21;
-
-//Находим все ключи объекта 
-for (var key in user) {
-	console.log('Название ' + key + ' Значение ' + user[key]);
-}
-console.log(Object.keys(user).length);
-
-//Задание
-function isEmpty(obj) {
-	for (var key in obj){
-		return true;
-	}
-	return false;
-}
-
-var schedule = {};
-
-console.log( isEmpty(schedule) ); // true
-
-schedule["8:30"] = "подъём";
-
-console.log( isEmpty(schedule) ); // false
-
-
-
-//Копирование одного объекта в другой
-// ВАЖНО! В переменной лежит ссылка на объект, а не сам объект 
-var person = {
-	name: 'Vasya',
-	profession: 'Sporstman',
-	pat: 'Dog'
+// Псевдо массив arguments содержит все параметры, которые были переданы функции
+// С помощью него можно скопировать свойства одних объектов в другие
+var mother = {
+	children: 3,
+	kitchen: true,
+	job: false 
+};
+var father = {
+	name: 'Anrey',
+	car: true
+};
+var child = {
+	age: 12,
+	school: '278' 
 };
 
-var person2 = {};
-for(var key in person) {
-	person2[key] = person[key];
+copy(mother, father, child);
+console.log(mother);
+function copy() {
+	var dst = arguments[0];
+	for(var i = 1; i < arguments.length; i++) {
+		for(var key in arguments[i]){
+			dst[key] = arguments[i][key];
+		}
+	}
+	return dst;
 }
-console.log(person2);
-
-//Пример ошибки консоли, сначала она посчитает microsecond,
-//а потом выведет microsecond = 123459
-var time = {
-  year: 2345,
-  month: 11,
-  day: 10,
-  hour: 11,
-  minute: 12,
-  second: 13,
-  microsecond: 123456
-}
-
-console.log(time); // (*)
-time.microsecond++; // (**)
-
-console.log(time);
-time.microsecond++;
-
-console.log(time);
-time.microsecond++;
