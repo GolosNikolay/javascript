@@ -2,30 +2,18 @@
 			  // однако не поддерживается в IE9, чтобы это исправить можно для старых браузеров подключить
 			  // библиотеку ES5 shim
 
-// Псевдо массив arguments содержит все параметры, которые были переданы функции
-// С помощью него можно скопировать свойства одних объектов в другие
-var mother = {
-	children: 3,
-	kitchen: true,
-	job: false 
-};
-var father = {
-	name: 'Anrey',
-	car: true
-};
-var child = {
-	age: 12,
-	school: '278' 
-};
+//Именнованые аргументы - передача в качества параметра для функции объекта
+//Можно использовать, например, когда нужно изменить некоторые параметры использующиеся по умолчанию
 
-copy(mother, father, child);
-console.log(mother);
-function copy() {
-	var dst = arguments[0];
-	for(var i = 1; i < arguments.length; i++) {
-		for(var key in arguments[i]){
-			dst[key] = arguments[i][key];
-		}
-	}
-	return dst;
+function createModal(parametrs) {
+	var width = parametrs.width || 150;
+	var height = parametrs.height || 'auto';
+	var backgound = parametrs.backgound || '#fafafa';
+	var title = parametrs.title || 'Внимание!';
+	var titleColor = parametrs.titleColor || 'Orange';
 }
+
+createModal({
+	width: 400,
+	title: 'Будьте добры!'
+});
