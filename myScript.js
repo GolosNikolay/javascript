@@ -2,73 +2,56 @@
 			  // однако не поддерживается в IE9, чтобы это исправить можно для старых браузеров подключить
 			  // библиотеку ES5 shim
 
+//Знакомство с объектами - this
+//Создаем калькулятор
+var calculator = {
+	read: function() {
+		this.firstNumber = +prompt('Введите первое число', 5);
+		this.secondNumber = +prompt('Введите второе число', 5);
+	},
+	sum: function() {
+		return this.firstNumber + this.secondNumber;
+	},
+	mul: function() {
+		return this.firstNumber * this.secondNumber;
+	},
+};
 
-// Замыкаие через вложенную функцию
-function counter() {
-	var counter = 1;
-	return function() {
-		return counter++;
+/*calculator.read();
+alert( calculator.sum() );
+alert( calculator.mul() ); */
+
+//Констурктор
+function People(age, name, sex) {
+
+	this.age = age || 'Unknown age';
+	this.name = name || 'Unknown name';
+	this.sex = sex || 'Unknown sex';
+	this.alertData = function() {
+		console.log(this.age + ' ' + this.name + ' ' + this.sex);
 	};
 }
 
-var newCounter = counter();
-var nextCounter = counter();
+var nikita = new People(21,'Nikita','Male');
+console.log(nikita);
+nikita.alertData();
 
-//Замыкание через вложенную функцию с дополнительными методами
-function objCounter() {
-	var currentCounter = 1;
-
-	function counter() {
-		return currentCounter++;
-	}
-	counter.setValue = function(value) {
-		currentCounter = value;
-	}
-	counter.reset = function() {
-		currentCounter = 0;
-	}
-
-	return counter;
+//Создаем калькулятор через конструктор
+function Calculator() {
+	this.read = function() {
+		this.first = +prompt('Введите первое число', 5);
+		this.second = +prompt('Введите второе число', 5);
+	};
+	this.sum = function() {
+		return this.first + this.second;
+	};
+	this.mul = function() {
+		return this.first * this.second;
+	};
 }
 
-var newObjCounter = objCounter();
-newObjCounter.setValue(5);
+var calculator = new Calculator();
+calculator.read();
 
-
-
-
-function makeBuffer() {
-	var bufferString = '';
-
-	function buffer() {
-		return arguments.length > 0 ? buffer.add(arguments[0]) : buffer.show();
-	}
-	buffer.add = function(addString) {
-		bufferString += addString;
-	}
-	buffer.show = function() {
-		return bufferString;
-	}
-	buffer.clear = function() {
-		bufferString = ;
-	}
-	return buffer;
-}
-
-var buffer = makeBuffer();
-
-// добавить значения к буферу
-buffer('Замыкания');
-buffer.clear();
-buffer(' Использовать');
-buffer(' Нужно!');
-
-// получить текущее значение
-alert( buffer() ); // Замыкания Использовать Нужно!
-
-var buffer2 = makeBuffer();
-buffer2(0);
-buffer2(1);
-buffer2(0);
-
-alert( buffer2() ); // '010'
+alert( "Сумма=" + calculator.sum() );
+alert( "Произведение=" + calculator.mul() );
